@@ -1,0 +1,125 @@
+# 확률 및 통계 관련 R 예제
+
+> 이 문서에서는 조합의 계산, 조합 생성, 난수 생성, 재현 가능한 난수 생성, 랜덤 샘플 생성, 랜덤 시퀀스 생성, 벡터의 무작위 순열, 이산 확률 분포의 확률 계산, 연속 확률 분포의 확률 계산, 확률을 분위수로 변환, 밀도 함수 플로팅 등을 다룬다.
+
+## 조합의 수 계산
+
+### n개의 항목에서 k개의 항목을 선택하는 조합의 수
+
+```{R}
+# choose() 함수 사용
+n = 5
+k = 3
+x = choose(n, k)
+x
+```
+
+## 조합 생성
+
+### n개의 항목에서 k개의 항목을 선택하는 모든 조합 생성
+
+```{R}
+# combn() 함수 사용
+n = 5
+k = 3
+combn(n, k)
+```
+
+## 난수 생성
+
+### 정규 분포를 따르는 난수 생성
+
+```{R}
+# rnorm() 함수 사용
+set.seed(123) # 재현 가능한 난수 생성을 위해 시드 설정
+var = rnorm(10, mean = 0, sd = 1)
+var
+```
+
+## 재현 가능한 난수 생성
+
+### 시드 설정을 통해 재현 가능한 난수 생성
+
+```{R}
+set.seed(42)
+x = rnorm(5)
+x
+```
+
+## 랜덤 샘플 생성
+
+### 주어진 벡터에서 랜덤 샘플 추출
+
+```{R}
+sample_vector = c(1, 2, 3, 4, 5)
+random_sample = sample(sample_vector, size = 3, replace = FALSE)
+random_sample
+```
+
+## 랜덤 시퀀스 생성
+
+### 주어진 범위 내에서 랜덤 시퀀스 생성
+
+```{R}
+random_seq = sample(1:10, size = 5, replace = FALSE)
+random_seq
+```
+
+## 벡터의 무작위 순열
+
+### 벡터의 요소를 무작위로 섞기
+
+```{R}
+vec = c(1, 2, 3, 4, 5)
+permu = sample(vec)
+permu
+```
+
+## 이산 확률 분포의 확률 계산
+
+### 이항 분포의 확률 계산
+
+```{R}
+# dbinom() 함수 사용
+success = 2
+times = 5
+prob = 0.5
+binom_prob = dbinom(success, times, prob)
+binom_prob
+```
+
+## 연속 확률 분포의 확률 계산
+
+### 정규 분포의 확률 계산
+
+```{R}
+# dnorm() 함수 사용
+x = 1.96
+mu = 0
+sigma = 1
+norm_prob = dnorm(x, mean = m, sd = sigma)
+norm_prob
+```
+
+## 확률을 분위수로 변환
+
+### 정규 분포의 분위수 계산
+
+```{R}
+# qnorm() 함수 사용
+prob = 0.975
+norm_quantile = qnorm(prob, mean = 0, sd = 1)
+norm_quantile
+```
+
+## 밀도 함수 플로팅
+
+### 정규 분포의 밀도 함수 플로팅
+
+```{R}
+# curve() 함수와 dnorm() 함수 사용
+curve(dnorm(x, mean = 0, sd = 1), from = -3, to = 3, col = "blue", main = "pdf of gaussian", xlab = "x", ylab = "Density")
+```
+
+이 R Markdown 파일은 다양한 확률 및 통계 관련 작업을 R로 수행하는 방법을 보여줍니다.\
+각 주제에 대한 설명과 예제 코드를 포함하고 있어, R을 사용하여 확률 및 통계 분석을 수행하는 데 도움이 됩니다.
